@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require('dotenv').config();
+
 // Product Schema
 const productSchema = new mongoose.Schema({
   id: { type: Number, required: true },
@@ -31,13 +33,13 @@ const cartProductSchema = new mongoose.Schema({
 const app = express();
 app.use(express.json());
 app.use(cors());
-
+// console.log(process.env.mongoAPIuri);
 const PORT = process.env.PORT || 3000;
 
 // MongoDB connection
 mongoose
   .connect(
-    "mongodb+srv://anujajadhav:rms1234@cluster0.tdrmidv.mongodb.net/rms_ratatoullie",
+    process.env.mongoAPIuri,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
