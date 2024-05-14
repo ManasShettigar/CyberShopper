@@ -1,0 +1,37 @@
+<div class="container m-3">
+    <mat-card class="shadow-md max-w-md mx-auto relative">
+      <mat-card-header class="flex justify-center items-center flex-col-reverse"  >
+        <!-- <div mat-card-avatar class="h-16 w-16 rounded-full overflow-hidden">
+          <img mat-card-image  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        </div> -->
+        <div class="flex justify-center">
+        <mat-card-title  [matTooltip]='product.title'   class=" text-center hover:cursor-pointer">{{ product.title| slice:0:22 }}{{ product.title.length > 25 ? '...' : '.' }}</mat-card-title>
+      </div>
+        <mat-card-subtitle class="m-36">{{ product.category.toUpperCase() }}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="flex justify-center">
+        <img class="max-w-auto h-40 z-0" mat-card-image src="{{ product.image }}" alt="Product Image">
+      </div>
+      <div class="px-3 flex justify-between flex-col">
+        <div style="height: 90px; overflow: hidden;text-overflow: ellipsis;" >
+          <p class="py-3 text-justify h-28" id="description">{{ product.description | slice:0:150 }}{{ product.description.length > 150 ? '...' : '.' }}</p>
+        </div>
+        <div class="flex justify-center items-center flex-col h-fit"><div class=" "><h1 id="price"class="text-xl font-bold pt-2  ">${{ product.price }}</h1></div></div>
+        
+      </div>
+      <mat-card-actions class="flex justify-between px-4">
+        <button mat-button color="primary" class="w-40" (click)="addToCart()">Add to Cart</button>
+        <button mat-button color="primary" class="w-40" (click)="viewNow(product.title,product.id)">View</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
+  <!-- <div class="container">
+    <div class=" flex justify-center">
+      <div class="h-18 w-16 rounded-full overflow-hidden">
+        <img  src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="profile image">
+      </div>
+      <div class="">
+       <h2>{{ product.title }}</h2>      </div>
+    </div>
+  </div> -->

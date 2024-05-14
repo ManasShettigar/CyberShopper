@@ -1,0 +1,12 @@
+<div class="main-box container p-3 ">
+    <div class="innerBox">
+    <div class="image"><img [src]='product.image' alt=""></div>
+  <div class="title pl-2">{{product.title}}
+<span class="remove font-thin text-xs hover:cursor-pointer underline text-fuchsia-600" (click)="handleDelete()">Remove</span></div>
+  <div class="price">${{product.price}}</div>
+  <div class="quantity">
+    <div class="counter"><button [disabled]='incBool' class="increment" (click)='handleIncrement()'>+</button><span class="value">{{product.quantity}}</span> <button [disabled]='decBool'(click)='handleDecrement()' class="decrement">-</button></div>
+</div>
+<div class="productTotal">${{(product.price*product.quantity)| number : '1.2-2' }}  </div>
+</div>
+</div>

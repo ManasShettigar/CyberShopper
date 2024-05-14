@@ -1,0 +1,53 @@
+<section class="product">
+  <div class="product__photo">
+    <div class="photo-container">
+      <div class="photo-main">
+        <div class="controls">
+          <i class="material-icons">share</i>
+          <i class="material-icons">favorite_border</i>
+        </div>
+        <img src="{{ data.image }}" alt="{{ data.title }}" />
+      </div>
+    </div>
+  </div>
+  <div class="product__info">
+    <div class="title">
+      <div >
+        <h1>{{ data.title }}</h1>
+		<div class="flex items-center h-10">        <fa-icon
+          [icon]="faPenToSquare"
+          class="hover:cursor-pointer  w-3"
+          [routerLink]="['/editproduct', data.id]"
+        ></fa-icon>
+
+        <mat-icon
+          svgIcon="delete-icon"
+          class="h-0 p-1 ml-5 hover:cursor-pointer"
+          (click)="handleDelete()"
+        ></mat-icon></div>
+
+      </div>
+
+      <h3>{{ data.category.toUpperCase() }}</h3>
+      <span>Rating {{ data.rating.rate }}({{ data.rating.count }})</span>
+    </div>
+    <div class="price">
+      Rs <span>{{ data.price }}</span>
+    </div>
+
+    <div class="description">
+      <h3>BENEFITS</h3>
+      <span>{{ data.description }}</span>
+    </div>
+    <button class="buy--btn">ADD TO CART</button>
+  </div>
+</section>
+
+<div *ngIf="data.length == 0">
+  <div class="flex justify-center items-center flex-col">
+    <h2 class="text-center mt-10 pt-10">
+      Please wait a moment data is still being loaded...
+    </h2>
+    <mat-spinner class=""></mat-spinner>
+  </div>
+</div>

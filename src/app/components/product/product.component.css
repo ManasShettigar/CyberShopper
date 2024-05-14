@@ -1,0 +1,41 @@
+::-webkit-scrollbar {
+    display: none;
+  }
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 30;
+
+  }
+  /* .mat-h1, .mat-headline-5, .mat-typography .mat-h1, .mat-typography .mat-headline-5, .mat-typography h1 */
+  /* .mat-h1 ::ng-deep .mat-headline-5,
+.mat-typography ::ng-deep .mat-h1,
+.mat-typography ::ng-deep .mat-headline-5
+.mat-typography::ng-deep h1 {
+  margin: 0;
+}
+   */
+  .truncate:hover {
+    white-space: normal;
+    overflow: visible;
+    z-index: 30;
+  }
+  
+  #description{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  h2,p {
+    margin: 0;
+  }
+  #price{
+    margin: 0;
+  }
+  button:hover{
+    background-color: #444444;
+    color: 	#eae6f0;
+  }
+ 

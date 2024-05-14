@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="flex justify-evenly items-center  h-10">
+    <app-search class="h-12" (search)="onSearch($event)"></app-search>
+    <div class="flex justify-between items-center w-1/4 h-12  m-0" > <button mat-stroked-button color="primary" [routerLink]="'/addproduct'">+ Add Product</button>
+    <div>    <button mat-icon-button [matBadge]="cartItemsCount" matBadgeColor="warn" [routerLink]="'/addtocart'" matBadgeSize="small">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </div>          
+    </div>
+</div>
+<div class="heroProduct h-64 m-2 border-red-300 flex justify-evenly items-center relative" *ngIf="data.length > 0">
+    <div ><mat-icon class="absolute hover:cursor-pointer left-0" (click)="handleDecrement()">keyboard_arrow_left</mat-icon></div>
+    <div class="flex items-center flex-col"> <p>Get Your</p>
+    <h2>{{heroTitle}}</h2></div>
+    <div >
+        <img class="max-h-60" src="{{heroImage}}" alt="heroProduct">
+    </div>
+    <div>
+        <h1>{{ '@Only $' + heroPrice }}</h1>
+    </div>
+   <div > <mat-icon class="absolute right-0 hover:cursor-pointer" (click)="handleIncrement()">keyboard_arrow_right</mat-icon></div>  
+</div>
+<!-- background-color: 	#747474; -->
+<div style="background-image: url(https://images.unsplash.com/photo-1521566652839-697aa473761a?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); background-repeat: no-repeat;">
+    <div class="my-5" style="position: relative;">
+      <div class="sticky-wrapper" style="position: sticky; top: 0;">
+        <div class="flex flex-wrap justify-evenly">
+          @for (product of filteredProduct; track $index) {
+            <div class="w-3/12 m-3"><app-product [product]="product" [cartItemsCount]="cartItemsCount" (productBuy)="buyProduct($event)" (CartItemsCount)="handleCartDataFromChild($event)"></app-product>
+            </div>  
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+<div *ngIf="data.length==0">
+    <div class="flex justify-center items-center flex-col"><h2 class="text-center mt-10 pt-10">Please wait a moment data is still being loaded...  </h2>
+        <mat-spinner class=""></mat-spinner></div>
+</div>
+</div>

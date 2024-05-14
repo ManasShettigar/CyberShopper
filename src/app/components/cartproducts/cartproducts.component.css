@@ -1,0 +1,63 @@
+img{
+    max-height: 4em;
+    max-width: 5em;
+    /* min-height: 5em; */
+}
+.main-box{
+    border-bottom: 2px solid #673ab7;
+}
+.innerBox{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 6% 53% 14% 11% 12.7%; 
+    height: 4em;
+    column-gap: 1em;
+}
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.quantity{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.productTotal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.counter{
+    width: 6em;
+    border: 0.2em solid #673ab7;
+    border-radius: 0.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.increment,.decrement,.value{
+    width: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.increment,.value{
+    border-right: 1px solid #bc98fa;
+}
+.increment:hover,.decrement:hover{
+    background-color: #bc98fa;
+    color: white;
+}

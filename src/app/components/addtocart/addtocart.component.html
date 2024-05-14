@@ -1,0 +1,50 @@
+<div>
+    <div class="main-grid-container">
+        <div class="main-grid">
+          <div class="header text-center">
+            <h2>Your cart items</h2>
+          </div>
+          <div class="back-to-shopping w-full text-center h-fit ">
+            <h4 class='hover:cursor-pointer'[routerLink]="'/'" style="text-decoration: underline; color: #BF55EC;">Back to shopping?</h4>
+          </div>
+          <div class="products-container flex justify-center">
+            <!-- fetched products -->
+            <div class="productContainer w-5/6 ">            
+                <div class="productsHead mb-3">
+                <ul class="text-left pl-3 font-medium text-xl">Products</ul>
+                <ul class="text-center font-medium text-xl ">Price</ul>
+                <ul class="text-center font-medium text-xl ">Quantity</ul>
+                <ul class="text-center font-medium text-xl ">Total</ul>
+            </div>
+            <hr class="h-1 bg-violet-200 border-none ">
+            <div class="productsDisplay p-3">
+                
+                <div *ngIf="data.length>0; else elseBlock">
+                    @for (item of data; track $index) {
+                        <app-cartproducts (TotalPrice)="onFunctionTriggered()" [product]="item"></app-cartproducts>
+                    }
+                  </div>
+                 
+                  
+                  <ng-template #elseBlock>
+                    <!-- content to render when condition is false -->
+                    <h1>No items found in Cart</h1>
+                  </ng-template>
+                    
+                </div>
+            <hr class="h-1 bg-violet-200 border-none ">
+            <div class="Bottom" >
+                <div class="total">
+                    <h2>Sub-total</h2>
+                </div>
+                <div class="totalPrice"><h2>${{totalPrice|number : '1.2-2' }}</h2></div>
+                <div class="checkout">
+                    <button mat-flat-button color="primary" class="w-full ">Checkout</button>
+                </div>
+            </div>
+        </div>
+
+          </div>
+        </div>
+      </div>
+</div>
