@@ -1,1 +1,13 @@
-<h1 class="text-center m-0  text-pretty text-white hover:cursor-pointer" [routerLink]="'/'" style="background-color: #0a0708;">Merchandise Store</h1>
+<!-- <h1 class="text-center m-0  text-pretty text-white hover:cursor-pointer" [routerLink]="'/'" style="background-color: #0a0708;">CyberShopper</h1> -->
+<div class="relative">
+<div class="header h-12">
+    <div class="image"><img  class="h-10" [routerLink]="'/'" src="assets\logo-black.png" alt="Logo"></div>
+    <div class="centerContent"><div class="searchBar">    <app-search class="" (search)="onSearch($event)"></app-search> </div></div>
+    <div class="add flex justify-between items-center w-1/4 h-12  m-0" > <button class="add" mat-stroked-button color="primary" [routerLink]="'/addproduct'">+ Add Product</button>
+
+ <div class="rightContent pt-1"> <button mat-icon-button class="" [matBadge]="cartItemsCount" matBadgeColor="primary" [routerLink]="'/addtocart'" matBadgeSize="small">
+        <mat-icon>shopping_cart</mat-icon>
+      </button></div>
+          
+</div>
+</div>

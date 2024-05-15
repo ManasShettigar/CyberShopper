@@ -1,0 +1,46 @@
+.main{
+    margin-top: 7em;
+}
+.heroProductContainer{
+    margin-top: 5em;
+    height: 100%;
+    width: 100%;
+   /* background-image: url(); */
+
+}
+.heroImgBG{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    opacity: 0.7;
+}
+.heroProduct{
+    height: 60%;
+ width: 70%;
+    border: 2px solid aliceblue;
+    border-radius: 0.2em;
+    background-color: white;
+}
+.heroTitle{
+    width: 60%;
+}
+.productsTitle{
+    margin: 0;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h1{
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.productBackground{
+    background-color: #fffbfb;
+}
+.getTitle{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}

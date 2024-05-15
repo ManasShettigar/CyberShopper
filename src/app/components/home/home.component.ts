@@ -49,7 +49,7 @@ buyProduct(event:any){
 }
   keyword='';
   // constructor(private dataService: DataService) { }
-  url='https://fakestoreapi.com/products';
+  // url='https://fakestoreapi.com/products';
   async ngOnInit(): Promise<void> {
     this.productService.getProducts().subscribe((result)=>{
       console.log(result);
@@ -58,10 +58,10 @@ buyProduct(event:any){
       this.dataLength=this.data.length;
       this.heroProductDisplay(this.dataLength);
     })
-    this.productService.getAddToCart().subscribe((cartItems:{ [key: string]: any }) => {
-      let totalQuantity =  Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
-      this.cartItemsCount=totalQuantity;
-    });
+    // this.productService.getAddToCart().subscribe((cartItems:{ [key: string]: any }) => {
+    //   let totalQuantity =  Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
+    //   this.cartItemsCount=totalQuantity;
+    // });
     // this.productService.getAddToCart().subscribe((result)=>{
     //   this.cartItemsData=result;
     // })
