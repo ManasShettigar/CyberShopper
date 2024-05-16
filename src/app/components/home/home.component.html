@@ -13,12 +13,12 @@
 <div class="heroProduct flex justify-between items-center relative" *ngIf="data.length > 0">
     <div ><mat-icon class="min-h-2 hover:cursor-pointer left-0" (click)="handleDecrement()">keyboard_arrow_left</mat-icon></div>
     <div class="getTitle flex items-center flex-col"> <p>Get Your</p>
-    <h2 class="heroTitle">{{heroTitle}}</h2></div>
-    <div >
-        <img class="max-h-60" src="{{heroImage}}" alt="heroProduct">
+    <h2 class="heroTitle ">{{heroTitle}}</h2></div>
+    <div class="" >
+        <img class="max-h-60 " src="{{heroImage}}" alt="heroProduct">
     </div>
     <div>
-        <h1>{{ '@Only $' + heroPrice }}</h1>
+        <h1 class="m-2">{{ '@Only $' + heroPrice }}</h1>
     </div>
    <div > <mat-icon class="min-h-2 right-0 hover:cursor-pointer" (click)="handleIncrement()">keyboard_arrow_right</mat-icon></div>  
 </div>
