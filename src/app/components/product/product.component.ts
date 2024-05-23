@@ -7,6 +7,7 @@ import { EditproductComponent } from '../editproduct/editproduct.component';
 
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ProductService } from '../../product.service';
+import { SharedServiceService } from '../../shared-service.service';
 // import { response } from 'express';
 
 @Component({
@@ -17,11 +18,11 @@ import { ProductService } from '../../product.service';
   styleUrl: './product.component.css'
 })
 export class ProductComponent implements OnInit {
-  constructor(private router: Router,private productService: ProductService) { }
+  constructor(private router: Router,private productService: ProductService,private sharedService: SharedServiceService) {}
   cartItemsData: any ;
   
   ngOnInit(): void {
-    console.log(this.cartItemsCount);
+    // console.log(this.cartItemsCount);
 
   }
   @Input() cartItemsCount:any;
@@ -41,6 +42,7 @@ export class ProductComponent implements OnInit {
           let totalQuantity =  Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
           this.CartItemsCount.emit(totalQuantity);
         });
+        this.sharedService.triggerFunction3();
       });
   
       if (!result) {
@@ -53,8 +55,10 @@ export class ProductComponent implements OnInit {
             let totalQuantity =  Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
             this.CartItemsCount.emit(totalQuantity);
           });
+          this.sharedService.triggerFunction3();
         });
       }
+
     });
   }
   

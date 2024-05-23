@@ -12,20 +12,22 @@
   <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" class="heroImgBG">
 <div class="heroProduct flex justify-between items-center relative" *ngIf="data.length > 0">
     <div ><mat-icon class="min-h-2 hover:cursor-pointer left-0" (click)="handleDecrement()">keyboard_arrow_left</mat-icon></div>
-    <div class="getTitle flex items-center flex-col"> <p>Get Your</p>
-    <h2 class="heroTitle ">{{heroTitle}}</h2></div>
+    <div class="getTitle flex items-center flex-col " style="margin: 0px;"> <p>Get Your</p>
+    <h2 class="heroTitle text-center max-w min-w-96 " style="margin: 0px;">{{heroTitle}}</h2></div>
     <div class="" >
-        <img class="max-h-60 " src="{{heroImage}}" alt="heroProduct">
+        <img class="max-h-60 min-w-52" src="{{heroImage}}" alt="heroProduct">
     </div>
     <div>
-        <h1 class="m-2">{{ '@Only $' + heroPrice }}</h1>
+        <h1 class="m-2 text-center" style="margin: 0px;">{{ '@Only $' + heroPrice }}</h1>
     </div>
    <div > <mat-icon class="min-h-2 right-0 hover:cursor-pointer" (click)="handleIncrement()">keyboard_arrow_right</mat-icon></div>  
 </div>
 </div>
 <!-- background-color: 	#747474; -->
-<div class="mb-5 mt-10">
-<h1 class="productsTitle text-center  ">Products</h1></div>
+<div class="mb-5 mt-10 flex justify-center items-center flex-col">
+  <div class="mainHeading w-full  flex justify-between px-12 items-center ">
+<div><h1 class="productsTitle text-left pl-10 ">PRODUCTS</h1> </div><div><app-search class=""></app-search> </div></div>
+<div class="text-center font-sans mt-2">Order it for you or for your beloved ones!</div></div>
 <div class="productBackground">
     <div class="" style="position: relative;">
       <div class="sticky-wrapper" style="position: sticky; top: 0;">

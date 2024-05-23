@@ -1,13 +1,12 @@
-<form class="w-2/3 ">
     <div class="flex justify-evenly items-center w-96 border-indigo-400 ">
         <div class="w-2/3  flex items-center">
-        <input matInput-stroked type="text" class=" h-12 " placeholder="Search Your Product" (keypress)="onSearch($event)" [value]="keyword">
+        <input matInput-stroked type="text" class=" h-12 " placeholder="Search Your Product" (input)="onSearch($event)" [value]="keyword">
        
-            <button *ngIf="keyword" class="" matPrefix mat-icon-button aria-label="Clear" (click)="keyword=''">
+            <button *ngIf="keyword" class="" matPrefix mat-icon-button aria-label="Clear" (click)="onClear()">
                 <mat-icon>close</mat-icon>
             </button>
         </div>
         <button mat-stroked-button    class="" (click)="searchKeyword()">Search</button>
     </div> 
-</form>
+
   

@@ -19,5 +19,7 @@ form div button{
 form div button:hover{
   color: aliceblue;
   background-color: #6C47B9;
+  box-shadow: 0.01em 0.01em 0.5em .1em rgb(12, 4, 29);
+
 
 }

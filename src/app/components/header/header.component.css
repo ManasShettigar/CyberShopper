@@ -9,7 +9,7 @@
     z-index: 99;
     height: 5em;
     background-color: white;
-    
+
     /* background-color: #36454F	; */
 }
 
@@ -34,6 +34,9 @@
 }
 .image:hover{
 cursor: pointer;
+/* box-shadow: 0.01em 0.01em 0.5em .1em rgb(12, 4, 29); */
+/* image-rendering: -webkit-optimize-contrast; */
+
 }
 /* mat-icon{
     color: aliceblue;
@@ -46,6 +49,17 @@ div .add button{
 div .add button:hover{
     color: aliceblue;
     background-color: #7a4ae1;
-    box-shadow: 0.1em 0.1em 0.5em .1em rgb(12, 4, 29);
+    box-shadow: 0.01em 0.01em 0.5em .1em rgb(12, 4, 29);
 
+
+}
+.profileIcon{
+    height: 1em;
+    width: 1em;
+    margin-right: 0.3em;
+    font-size: xx-large
+}
+.profileIcon:hover{
+    color: #7a4ae1;
+    cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import { Component,Input,Output ,EventEmitter} from '@angular/core';
 import { ProductService } from '../../product.service';
 import { CommonModule } from '@angular/common';
+import { SharedServiceService } from '../../shared-service.service';
 
 // import { MatInputCounterModule } from '@angular-material-extensions/input-counter';
 
@@ -14,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class CartproductsComponent {
   incBool=false;
   decBool=false;
-constructor(private cartProducts: ProductService){}
+constructor(private cartProducts: ProductService,private sharedService: SharedServiceService){}
 @Input() product: any;
 @Output() TotalPrice = new EventEmitter<any>();
 
@@ -23,6 +24,7 @@ handleDecrement(){
     this.cartProducts.decreaseQuantity(this.product.id,1).subscribe(()=>{
       console.log("dec");
       this.TotalPrice.emit();
+      this.sharedService.triggerFunction3();
     })
     // this.cartProducts.productExist(this.product.id).subscribe((result)=>{
     //   this.product=result
@@ -41,6 +43,8 @@ handleIncrement(){
 this.cartProducts.updateQuantity(this.product.id,1).subscribe(()=>{
   console.log("inc");
   this.TotalPrice.emit();
+  this.sharedService.triggerFunction3();
+
   // this.cartProducts.productExist(this.product.id).subscribe((result)=>{
   //   this.product=result
   // })
@@ -55,6 +59,7 @@ handleDelete(){
   this.cartProducts.deleteFromCart(this.product._id).subscribe(()=>{
     console.log('deleted')
     this.TotalPrice.emit();
+    this.sharedService.triggerFunction3();
 
   })
 }  

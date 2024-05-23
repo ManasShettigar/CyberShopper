@@ -35,7 +35,8 @@
     margin: 0;
   }
   button:hover{
-    background-color: #444444;
-    color: 	#eae6f0;
+    color: aliceblue;
+    background-color: #7a4ae1;
+    box-shadow: 0.01em 0.01em 0.5em .1em rgb(12, 4, 29);
   }
  

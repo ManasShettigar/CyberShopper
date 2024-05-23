@@ -25,6 +25,24 @@ export class ProductDetailComponent {
   constructor(private productService: ProductService,private route: ActivatedRoute,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {  iconRegistry.addSvgIconLiteral('delete-icon', sanitizer.bypassSecurityTrustHtml(Delete_ICON));};
  faTrash=faTrash;
   faPenToSquare=faPenToSquare;
+  incBool= false
+  decBool= true
+  quantityVal=1;
+  handleIncrement(){
+    this.quantityVal++;
+    this.decBool=false
+  }
+  handleDecrement(){
+    if(this.quantityVal!=1){
+      this.quantityVal--;
+      if(this.quantityVal==1){
+        this.decBool=true
+      }
+    }
+  }
+  addToCart(){
+    
+  }
   handleDelete(){
     this.productService.deleteProduct(this.data._id).subscribe(()=>{
       console.log("Deleted sucessfully");

@@ -1,4 +1,4 @@
-<section class="product">
+<!-- <section class="product">
   <div class="product__photo">
     <div class="photo-container">
       <div class="photo-main">
@@ -13,12 +13,9 @@
   <div class="product__info">
     <div class="title">
       <div >
-        <h1>{{ data.title }}</h1>
-		<div class="flex items-center h-10">        <fa-icon
-          [icon]="faPenToSquare"
-          class="hover:cursor-pointer  w-3"
-          [routerLink]="['/editproduct', data.id]"
-        ></fa-icon>
+        <h1 class="productTitle">{{ data.title }}</h1>
+		<div class="flex items-center h-10"> <mat-icon class="hover:cursor-pointer  w-3" [routerLink]="['/editproduct', data.id]">edit</mat-icon>   
+          
 
         <mat-icon
           svgIcon="delete-icon"
@@ -49,5 +46,100 @@
       Please wait a moment data is still being loaded...
     </h2>
     <mat-spinner class=""></mat-spinner>
+  </div>
+</div> -->
+
+<div class="product h-full w-full">
+  <div class="productContainer h-full w-full flex justify-center items-center">
+    <div class="productPhotoContainer h-full w-1/2 pl-20">
+      <div
+        class="productImageContainer h-full w-full flex justify-center items-center flex-col"
+      >
+        <div class="productPhoto">
+          <img src="{{ data.image }}" alt="{{ data.title }}" class="photo" />
+        </div>
+        <div
+          class="productPhotoDescription flex justify-center items-center flex-col text-justify mt-3"
+        >
+          <div class="content">
+            Crafted with precision and care, our {{ data.title }} are designed
+            to enhance your experience. Made from love, our products ensure
+            happiness.
+          </div>
+          <div class="phrase mt-2 flex justify-center items-center">
+            <div>Plus, enjoy the convenience of</div>
+            <mat-icon class="mx-2">local_shipping</mat-icon>
+            <div>Free Shipping!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="productContent pr-20 h-full w-1/2">
+      <div
+        class="productTitle h-full flex justify-end items-start flex-col"
+      >
+        <h1 class="text-left">{{ data.title }}</h1>
+        <div
+          class="categoryContainer w-full gap-2 flex justify-between items-center"
+        >
+          <div class="category">{{ data.category.toUpperCase() }}</div>
+          <div class="rating flex justify-center items-center gap-2">
+            <mat-icon>star</mat-icon>
+            <div class="flex justify-center items-center">
+              {{ data.rating.rate }} ({{ data.rating.count }} Reviews)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="priceContainer   w-full flex justify-between items-center"
+      >
+        <div class="price flex justify-start gap-3 items-center self-end">
+          <div class="" style="text-decoration: line-through ; color: rgb(206, 174, 237);">${{ data.price * 1.2 | number : "1.2-2" }}</div>
+           <div style="font-size: xx-large;">${{ data.price| number : "1.2-2" }}</div>
+        </div>
+        <div class="quantityContainer flex justify-evenly items-center self-end">
+          <span class="mr-3 text-lg">Quantity</span>
+          <div class="quantity">
+            <div class="counter">
+              <button
+                [disabled]="incBool"
+                class="increment"
+                (click)="handleIncrement()"
+              >
+                +</button
+              ><span class="value">{{ quantityVal }}</span>
+              <button
+                [disabled]="decBool"
+                (click)="handleDecrement()"
+                class="decrement"
+              >
+                -
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="totalSummar flex items-end"><div class="font-medium text-lg">Total: ${{data.price * quantityVal | number : "1.2-2"}}</div></div>
+      <div class="checkout flex justify-between items-center"><button
+        mat-button
+        color="primary"
+        class="addToCart w-40"
+        (click)="addToCart()"
+      > Buy Now
+        
+      </button>
+      <button
+        mat-button
+        color="primary"
+        class="addToCart w-40"
+        (click)="addToCart()"
+      >
+      Add to Cart
+      </button>
+      </div>
+      <div class="descriptionContainer p-5"><div class="descriptionContent text-justify">{{ data.description }}</div></div>
+    </div>
   </div>
 </div>

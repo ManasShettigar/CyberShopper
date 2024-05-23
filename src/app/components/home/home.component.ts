@@ -18,6 +18,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { RouterModule } from '@angular/router'; // Import RouterModule
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
+import { SharedServiceService } from '../../shared-service.service';
 
 @Component({
   selector: 'app-home',
@@ -40,23 +41,34 @@ export class HomeComponent implements OnInit{
   heroTitle!:any;
   heroPrice!:any;
   dataLength:any
-productService=inject(ProductService)
+  keyword='';
+  constructor(private productService: ProductService, private sharedService:SharedServiceService){
+    this.sharedService.triggerFunction1$.subscribe((data) => {
+    this.keyword=data
+    this.onSearch(this.keyword)
+    // console.log(message)
+  });
+this.sharedService.triggerFunction2$.subscribe((data)=>{
+  if(data=='clear'){
+    this.filteredProduct = this.data;
+  }
+})}
+// productService=inject(ProductService)
 handleCartDataFromChild(data:any){
   this.cartItemsCount=data;
 }
 buyProduct(event:any){
   console.log("Home cliked and customer wants to buy",event)
 }
-  keyword='';
   // constructor(private dataService: DataService) { }
   // url='https://fakestoreapi.com/products';
   async ngOnInit(): Promise<void> {
     this.productService.getProducts().subscribe((result)=>{
-      console.log(result);
+      // console.log(result);
       this.data = result as any[];
       this.filteredProduct = this.data;
       this.dataLength=this.data.length;
-      this.heroProductDisplay(this.dataLength);
+      this.heroProductDisplay();
     })
     // this.productService.getAddToCart().subscribe((cartItems:{ [key: string]: any }) => {
     //   let totalQuantity =  Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
@@ -74,58 +86,94 @@ buyProduct(event:any){
     //   });
     //  setInterval(()=>(console.log(this.dataLength)),3000)
     setInterval(() => {
-      this.heroProductDisplay(this.dataLength);
-  }, 6000);
-  
-  }
-  
-  heroProductDisplay(length:any){
-    // console.log(length)
-    // console.log(this.counter)
-    if(this.counter>=length){
-      this.counter=0;
-    }
-    else{
-      this.counter++;
-    }
-    this.heroData=this.data[this.counter];
-    this.heroImage=this.heroData.image;
-    this.heroTitle=this.heroData.title;
-    this.heroPrice=this.heroData.price;
-    // console.log(this.heroImage);
-   
-  }
-  handleIncrement(){
-    if(this.counter>=this.dataLength){
-      this.counter++; 
-    }
-    else{
-      this.counter=0;
-    }
-    // console.log(this.counter)
-    this.heroProductDisplay(this.dataLength)
-  }
-  handleDecrement(){
+      if(this.counter>=this.dataLength-1){
+        this.counter=0;
+      }
+      else{
+        this.counter++;
+      }
+      this.heroProductDisplay();
+    }, 6000);
     
-    if(this.counter>=0){
-      this.counter--; 
-    }
-    else{
-      this.counter=this.dataLength;
-    }
-    this.counter--; 
-    // console.log(this.counter)
-
-    this.heroProductDisplay(this.dataLength)
+  
   }
-  onSearch(event:any){
-    console.log(event);
-    if(event){
-      this.filteredProduct=this.data.filter(x=>x.title.toLowerCase().includes(event.toLowerCase()))
+  
+  // heroProductDisplay(length:any){
+  //   // console.log(length)
+  //   // console.log(this.counter)
+  //   if(this.counter>=length){
+  //     this.counter=0;
+  //   }
+  //   else{
+  //     this.counter++;
+  //   }
+  //   this.heroData=this.data[this.counter];
+  //   this.heroImage=this.heroData.image;
+  //   this.heroTitle=this.heroData.title;
+  //   this.heroPrice=this.heroData.price;
+  //   // console.log(this.heroImage);
+   
+  // }
+  // handleIncrement(){
+  //   if(this.counter>=this.dataLength){
+  //     this.counter++; 
+  //   }
+  //   else{
+  //     this.counter=0;
+  //   }
+  //   // console.log(this.counter)
+  //   this.heroProductDisplay(this.dataLength)
+  // }
+  // handleDecrement(){
+    
+  //   if(this.counter>=0){
+  //     this.counter--; 
+  //   }
+  //   else{
+  //     this.counter=this.dataLength;
+  //   }
+  //   this.counter--; 
+  //   // console.log(this.counter)
+
+  //   this.heroProductDisplay(this.dataLength)
+  // }
+  heroProductDisplay() {
+    // if (this.counter > this.dataLength) {
+    //   this.counter = 0;
+    // }
+    // else{
+      // }
+      // this.counter++;
+      this.heroData = this.data[this.counter];
+      this.heroImage = this.heroData.image;
+      this.heroTitle = this.heroData.title;
+      this.heroPrice = this.heroData.price;
+    }
+  
+  handleIncrement() {
+    this.counter = (this.counter+1) % this.dataLength;
+    // console.log(this.counter)
+    this.heroProductDisplay();
+  }
+  
+  handleDecrement() {
+    // console.log(this.dataLength)
+    // console.log(this.counter)
+    if(this.counter==0){
+      this.counter=this.dataLength-1
     }
     else{
-      this.filteredProduct = this.data;
+      this.counter = (this.counter - 1 + this.dataLength) % this.dataLength;
     }
+    // console.log(this.counter)
+    this.heroProductDisplay();
+  }
+  onSearch(keyword:any){
+    // console.log(event);
+    if(keyword){
+      this.filteredProduct=this.data.filter(x=>x.title.toLowerCase().includes(keyword.toLowerCase()))
+    }
+  
   }
   
 }

@@ -9,15 +9,16 @@ img{
 .innerBox{
     display: grid;
     width: 100%;
-    grid-template-columns: 6% 53% 14% 11% 12.7%; 
+    grid-template-columns: 6% 53% 14% 11% 12.5%; 
     height: 4em;
     column-gap: 1em;
+
 }
 .image{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: max-content;
+    width: 100%;
 }
 .title{
     display: flex;

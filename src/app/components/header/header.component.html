@@ -2,10 +2,15 @@
 <div class="relative">
 <div class="header h-12">
     <div class="image"><img  class="h-10" [routerLink]="'/'" src="assets\logo-black.png" alt="Logo"></div>
-    <div class="centerContent"><div class="searchBar">    <app-search class="" (search)="onSearch($event)"></app-search> </div></div>
+    <div class="centerContent"><div class="searchBar">    </div></div>
     <div class="add flex justify-between items-center w-1/4 h-12  m-0" > <button class="add" mat-stroked-button color="primary" [routerLink]="'/addproduct'">+ Add Product</button>
-
- <div class="rightContent pt-1"> <button mat-icon-button class="" [matBadge]="cartItemsCount" matBadgeColor="primary" [routerLink]="'/addtocart'" matBadgeSize="small">
+       
+ <div class="rightContent pt-1 flex justify-center items-center ">
+    <div class="flex justify-center items-center" > <mat-icon class="profileIcon md-18">
+        account_circle
+    </mat-icon></div>
+    
+    <button mat-icon-button class="" [matBadge]="cartItemsCount" matBadgeColor="primary" [routerLink]="'/addtocart'" matBadgeSize="small">
         <mat-icon>shopping_cart</mat-icon>
       </button></div>
           
