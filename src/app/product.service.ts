@@ -71,6 +71,10 @@ return this.httpClient.delete(`http://localhost:3000/addtocart/${id}`)
     const url = `http://localhost:3000/addtocart/updateinc/${id}`;
     return this.httpClient.patch(url,{counter});
   }
+  updateQuantityCounter(id:any,counter:any,product:any){
+    const url = `http://localhost:3000/addtocart/updatecounter/${id}`;
+    return this.httpClient.patch(url,{counter,product});
+  }
   decreaseQuantity(id:any,counter:any){
     const url = `http://localhost:3000/addtocart/updatedec/${id}`;
     return this.httpClient.patch(url,{counter});

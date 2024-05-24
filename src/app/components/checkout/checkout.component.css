@@ -1,0 +1,225 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* use viewport-relative units to cover page fully */
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+/* include border and padding in element width and height */
+* {
+  box-sizing: border-box;
+}
+
+.breadCrums{
+    font-family: 'Roboto';
+    font-weight: 500;
+}
+.carts{
+    height: 2em;
+    width: 4em;
+    color:blueviolet;
+    text-decoration: underline;
+}
+.carts:hover{
+    cursor: pointer;
+    border: 0.1em solid rgb(176, 117, 232);
+    border-radius: 0.3em;
+}
+.products{
+    height: 2em;
+    width: 4.5em;
+}
+/* .shippingContainer{
+    height: 180px;
+}
+*/
+.leftContainer{
+    min-width: 500px;
+    /* min-height: 800px; */
+}
+.products:hover{
+    cursor: pointer;
+    background-color: rgb(158, 85, 227);
+    color: white;
+    border: 0.1em solid rgb(176, 117, 232);
+    border-radius: 0.3em;
+}
+.shippingContainerForm{
+    height: 100%;
+    padding: 2em 1em 2em 1em;
+    border: 1px solid rgba(0, 0, 0, 0.089);
+    border-radius: 0.3em;
+    display: grid;
+    grid-template-rows: 10% 10% 10% 5% ;
+}
+.shippingContainerForm form{
+    height: 100%;;
+
+}
+.contactHeader{
+    font-family:  "Poppins", sans-serif;;
+    padding-left: 0.4em;
+    font-weight: 600;
+    font-size: x-large;
+    
+}
+.login{
+    color:blueviolet;
+    text-decoration: underline;
+    height: 2em;
+    width: 4em;
+
+}
+.login:hover{
+    cursor: pointer;
+    color: rgb(43, 15, 70);
+    /* border: 0.1em solid rgb(176, 117, 232);
+    border-radius: 0.3em; */
+}
+.namefield{
+    border: 1px solid blueviolet;
+    padding: 0em 1em 0em 1em;
+}
+.namefield:focus{
+    outline: none;
+}
+.shippingHeader{
+    font-family:  "Poppins", sans-serif;;
+    padding-left: 0.4em;
+    font-weight: 600;
+    font-size: x-large;
+}
+.shippingAddress input,textarea{
+    border: 1px solid blueviolet;
+    padding: 0em 1em 0em 1em;
+}
+.shippingAddress input,textarea:focus{
+
+    outline: none;
+
+}
+::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+
+  }
+
+::-webkit-scrollbar{
+    display: none;
+}  
+
+.shippingAddress{
+    display: grid;
+    /* grid-template-rows: 8% 20%; */
+    row-gap: 1em;
+}
+.address textarea{
+    padding: 1em 1em 1em 1em;
+
+}
+.backToCart{
+    font-size: medium;
+    text-decoration: underline;
+    color: blueviolet;
+}
+.backToCart:hover{
+cursor: pointer;
+color:rgb(158, 85, 227);
+}
+.checkoutCart{
+    background-color: blueviolet;
+    color: aliceblue;
+    font-size: large;
+    border-radius: 0.3em;
+}
+.checkoutCart:hover{
+    background-color: aliceblue ;
+    color: blueviolet;
+    border:0.1em solid blueviolet;
+
+}
+.rightContainer{
+    min-width: 500px;
+    /* min-height: 800px; */
+    background-color: #F2F2F2;
+    /* border: 0.1em solid aliceblue; */
+}
+.productPhoto{
+    background-color: white;
+    border-radius: 0.2em;
+    /* align-self: center;
+    justify-self: center; */
+}
+.productQuantity{
+    height: 2em;
+    width: 2em;
+    color: white;
+    background-color: blueviolet;
+    border-radius: 50%;
+    position: absolute;
+    top: -5%;
+    right: -5%;
+
+}
+.rightContainer{
+    /* height: 100%; */
+    display: grid;
+    grid-template-rows: 45% 1% 15% 1% 15% 1%; 
+}
+.title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: x-large;
+    /* font-style: italic; */
+}
+.productPrice{
+    font-family:'Roboto',sans-serif;
+    /* width: 10em; */
+	color: #673ab7;
+	font-weight: 500;
+	font-size:x-large;
+	margin: 0%;
+}
+.line{
+    height: 1px;
+    background-color: #afa0c8;
+    width: 80%;
+    justify-self:  center;
+}
+.subTotal,.finalTotal,.couponInput  {
+    width: 80%;
+    justify-self: center;
+    align-self: center;
+}
+.totalPhrase,.amountPhrase{
+    font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: rgb(63, 63, 63);
+}
+.amount,.totalPrice{
+    font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: medium;
+}
+.totalPrice{
+    font-size: x-large;
+}
+.icon{
+    height: 1.25em;
+    width: 1.25em;
+    border-radius: 50%;
+    background-color: grey;
+    color: #F2F2F2;
+    /* padding: 0.5em; */
+}
+.icon:hover{
+    background-color: rgb(188, 188, 188);
+    cursor: pointer;
+}

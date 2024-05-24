@@ -28,6 +28,9 @@ export class SearchComponent {
   }
 onSearch(event:any){
 this.keyword=event.target.value;
+if(this.keyword.length==0){
+  this.sharedService.triggerFunction2();
+}
 // console.log(this.keyword)
 }
 onClear(){

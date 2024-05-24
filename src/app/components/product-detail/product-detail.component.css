@@ -261,7 +261,7 @@ img {
 }
 .productContent{
 	display: grid;
-	grid-template-rows: 15% 20% 15% 15%;
+	grid-template-rows: 15% 20% 15% 10% 10%;
 }
 .price{
 	height: fit-content;
@@ -297,4 +297,29 @@ img {
 	height: fit-content;
 	border: 0.1em solid rgb(196, 173, 218);
 	border-radius: 0.2em;
+}
+
+.pincodeInputField {
+	border: none;
+	border-bottom:1px solid #673ab7;
+	-webkit-user-select: none;
+	user-select: none;
+	-webkit-appearance: none; /* Chrome, Safari, Opera */
+  -moz-appearance: none; /* Firefox */
+  appearance: none; 
+	
+}
+.pincodeInputField::selection{
+	border:none;
+	background: transparent;
+
+}
+.pincodeInputField::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+  }
+.pincodeInputField:focus{
+	outline:none;
+	appearance: none; 
+
 }

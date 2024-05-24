@@ -1,0 +1,84 @@
+<div class="container w-screen h-full mt-10 pt-20 flex justify-center items-center">
+
+<div class="leftContainer h-screen w-1/2 flex justify-center items-center flex-col ">
+    <div class="shippingContainer h-fit w-3/4 min-w-fit flex-grow">
+        <form class="shippingContainerForm h-fit w-full" [formGroup]="productUserForm">
+        <div class="breadCrums flex justify-start items-center gap-1 ">
+            <div [routerLink]="'/addtocart'" class="carts flex justify-center items-center" >Carts </div><div> > </div ><div class='products flex justify-center items-center' [routerLink]="['/product/{{data.title}}/{{data.id}}', { id: data.id,quantity:quantityVal} ]"> Product</div><div>></div> <div class='shipping flex justify-center items-center'>Shipping</div>
+        </div>
+        <div class="contactContainer flex justify-between items-center">
+            <div class="contactHeader">Contact</div>
+            <div class="loginAsk flex justify-between items-center "><div class="font-medium">Do you have an account?</div> <div class="login  flex justify-center items-center "> <div>Login</div></div></div>
+        </div>
+        <div class="contactInput  px-2 flex items-center h-full w-full">
+            <input  type="email" class="namefield w-full h-10" placeholder="Please enter your Email" formControlName="email">
+        </div>
+        <div class=""></div>
+        <div class="shippingAddress ">
+            <div class="shippingHeader">Shipping Address</div>
+            <div class="name h-10 px-2 flex items-center gap-2">
+                <input type="text" class="firstName h-full w-full" placeholder="First Name" formControlName="userFirstName">
+                <input type="text" class="lastName h-full w-full" placeholder="Last Name" formControlName="userSecondName">
+            </div>
+            <div class="address h-20 px-2">
+                <textarea class="h-full w-full" formControlName="address" placeholder="Please enter your address"></textarea>
+            </div>
+            <div class="number h-10 px-2"  > <input type="number" class="h-full w-full" formControlName="number" placeholder="Please enter your number"> </div>
+            <div class="cityContainer h-10 px-2 flex justify-between items-center gap-2 ">
+                <div class="city h-full w-full">
+                    <input type="text" class="h-full w-full" formControlName="city" placeholder="City">
+                </div>
+                <div class="pincode h-full w-full"> <input class="h-full w-full" type="text" formControlName="pincode" placeholder="Pincode" ></div>
+            </div>
+         
+            <div class="country h-10 px-2 "> <input class="h-full w-full" type="text" formControlName="country" placeholder="Country"></div>
+        </div>
+        </form>
+        <div class="footerContainer h-24 w-full flex justify-between items-center">
+            <div class="backToCart" [routerLink]="'/addtocart'">Back to Cart </div>
+            <div class=""><button
+                mat-button
+                color="primary"
+                class="checkoutCart w-40 "> Checkout
+              </button></div>
+        </div>
+    </div>
+    
+
+
+    
+</div>
+<div class="rightContainer h-screen w-1/2 p-4">
+    <div class="productContainer h-60 flex justify-center items-center gap-3">
+        <div class="productPhoto h-52 w-52 relative flex justify-center items-center p-3">
+            <img [src]="data.image" alt="" class="product max-h-full max-w-full">
+            <div class="productQuantity flex justify-center items-center"><div>{{quantityVal}}</div></div>
+        </div>
+        <div class="productTitle h-full gap-6  flex justify-center items-center flex-col "><div class="title">{{ data.title| slice:0:22 }}{{ data.title.length > 10 ? '...' : '.' }}</div>
+    <div class="productPrice text-left w-full">${{data.price | number : "1.2-2"}}</div></div>
+    </div>
+    <hr class="line bg-violet-100 border-none ">
+   
+   
+    <div class="couponInput  flex justify-center items-center h-full w-full gap-3 ">
+       <div class="icon flex justify-center items-center text-sm" matTooltip='Please enter the name of any popular anime from the "Big Four"'>i</div> <input  type="text" class="coupon w-4/6 h-10 px-2" [disabled]="codeState" (input)="coupounInput($event)" placeholder="Please enter your Coupon">
+        <div class=""><button
+            mat-button
+            color="primary"
+            (click)='validateCode()'
+            class="code w-28 "> Apply Code
+           
+          </button></div>
+    </div>
+    <hr class="line bg-violet-100 border-none ">
+    <div class="subTotal">
+        <div class="subTotalPrice flex justify-between items-center"><div class="amountPhrase">SubTotal</div><div class="amount">${{data.price*quantityVal | number : "1.2-2"}}</div></div>
+        <div class="freeDelivery flex justify-between items-center"><div class="amountPhrase">Shipping Fee</div><div class="amount">Free Shipping</div></div>
+        <div class="freeDelivery flex justify-between items-center"><div class="amountPhrase">Discount</div><div class="amount">-${{discountVal| number : "1.2-2"}}</div></div>
+    </div>
+    <hr class="line bg-violet-100 border-none ">
+    <div class="finalTotal flex justify-between items-center"><div class="totalPhrase">Total</div> <div class="totalPrice">${{data.price*quantityVal-discountVal | number : "1.2-2"}}</div></div>
+</div>
+
+</div>
+

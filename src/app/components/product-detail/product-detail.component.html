@@ -56,7 +56,13 @@
         class="productImageContainer h-full w-full flex justify-center items-center flex-col"
       >
         <div class="productPhoto">
-          <img src="{{ data.image }}" alt="{{ data.title }}" class="photo" />
+          <!-- <ng-container *ngIf="imageVal==null; else elseTemplate">
+            <mat-spinner class=""></mat-spinner>
+          </ng-container>
+          <ng-template #elseTemplate> -->
+            <img src="{{ data.image }}" alt="{{ data.title }}" class="photo" />   
+          <!-- </ng-template> -->
+          
         </div>
         <div
           class="productPhotoDescription flex justify-center items-center flex-col text-justify mt-3"
@@ -122,11 +128,36 @@
         </div>
       </div>
       <div class="totalSummar flex items-end"><div class="font-medium text-lg">Total: ${{data.price * quantityVal | number : "1.2-2"}}</div></div>
+      <div class="deliveryContainer flex justify-start items-start flex-col gap-2"><div class="pincodeInput">
+        <div class="pincodeInputContainer h-7 flex justify-start items-center ">
+        <input class="pincodeInputField w-14 text-sm" type="number"inputmode="numeric" (input)="pinCodeVerify($event)" maxlength="6" [value]="pinCode" placeholder="Pincode" >
+        <ng-container *ngIf="pinCode">
+          <ng-container *ngIf="pinValid; else elseTemplate">
+            <div class="flex justify-center items-center text-sm"><mat-icon class="text-base pl-1">task_alt</mat-icon><div class="text-sm pl-1"> Valid Pincode</div></div>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <div class="text-sm pl-1">Please enter a valid pincode</div>
+            
+          </ng-template>
+          
+        </ng-container>
+      </div>
+        
+      </div>
+       <ng-container *ngIf="pinCodeEntered; else elseTemplate">  
+        <div class="deliveryPrediction">Your package will be delivered in {{deliveryDate}} days</div>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <div class="deliveryPrediction">Please enter your pincode to check your delivery date.</div>
+      </ng-template>
+    </div>
       <div class="checkout flex justify-between items-center"><button
         mat-button
         color="primary"
         class="addToCart w-40"
-        (click)="addToCart()"
+        (click)="buyNow()"
+       [routerLink]="['/checkout', { id: data.id,quantity:quantityVal }]"
+        
       > Buy Now
         
       </button>

@@ -197,6 +197,29 @@ app.patch("/addtocart/updateinc/:id", async (req, res) => {
     console.log(error)
   }
 });
+app.patch("/addtocart/updatecounter/:id", async (req, res) => {
+  // console.log(req.body.product)
+
+  try {
+    // const productExist = await CartProduct.findOne({ id: req.params.id });
+    if (!await CartProduct.findOne({ id: req.params.id })) {
+      const product = new CartProduct(req.body.product);
+      await product.save();
+    }
+    // console.log(req.body)
+    const product = await CartProduct.updateOne({"id":req.params.id},{ $inc: { "quantity": req.body.counter } }
+    , {
+      new: true,
+    });
+    if (!product) {
+      return res.status(404).send();
+    }
+    res.send(product);
+  } catch (error) {
+    res.status(400).send(error);
+    console.log(error)
+  }
+});
 app.patch("/addtocart/updatedec/:id", async (req, res) => {
   // console.log(req.body)
 
