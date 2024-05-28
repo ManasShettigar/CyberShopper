@@ -1,6 +1,7 @@
-<div class="container w-screen h-full mt-10 pt-20 flex justify-center items-center">
-
-<div class="leftContainer h-screen w-1/2 flex justify-center items-center flex-col ">
+<div class="container w-full h-full flex justify-center items-center">
+<div *ngIf="checkout" class="checkoutPaymentBox">
+</div>
+<div class="leftContainer h-screen w-1/2 flex justify-center items-center flex-col">
     <div class="shippingContainer h-fit w-3/4 min-w-fit flex-grow">
         <form class="shippingContainerForm h-fit w-full" [formGroup]="productUserForm">
         <div class="breadCrums flex justify-start items-center gap-1 ">
@@ -39,7 +40,7 @@
             <div class=""><button
                 mat-button
                 color="primary"
-                class="checkoutCart w-40 "> Checkout
+                class="checkoutCart w-40 " (click)="onSubmit()"> Checkout
               </button></div>
         </div>
     </div>
@@ -61,7 +62,7 @@
    
    
     <div class="couponInput  flex justify-center items-center h-full w-full gap-3 ">
-       <div class="icon flex justify-center items-center text-sm" matTooltip='Please enter the name of any popular anime from the "Big Four"'>i</div> <input  type="text" class="coupon w-4/6 h-10 px-2" [disabled]="codeState" (input)="coupounInput($event)" placeholder="Please enter your Coupon">
+       <div class="icon flex justify-center items-center text-sm" matTooltip='Please enter the name of any popular anime from the "Big Four"'>i</div> <input  type="text" class="coupon w-4/6 h-10 px-2" [disabled]="codeState" (input)="coupounInput($event)" placeholder="Please enter your Coupon" [value]="couponCode">
         <div class=""><button
             mat-button
             color="primary"
